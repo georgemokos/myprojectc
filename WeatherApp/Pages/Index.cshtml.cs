@@ -47,7 +47,7 @@ public class IndexModel : PageModel
         return Page(); 
        }
 
-       string Apikey = "0bbe5f47e31d124b3ed8575eda341879";
+       string Apikey = "";
        string  url = $"https://api.openweathermap.org/data/2.5/weather?q={City}&units=metric&appid={Apikey}";
 
        try{
