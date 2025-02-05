@@ -1,0 +1,62 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<!--
+<div class="text-center ">
+    <h1 class="display-4">Weather Application</h1>
+    <form method="post">
+ <label>city</label>
+<input type="text" name="City" id="City" required />
+<button type="submit">insert</button>
+    </form>
+
+    <h1>@Model.ErrorMessage</h1>
+    <h1>@Model.Country</h1>
+    <h1>@Model.Temp</h1>
+</div>/-->
+
+ <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container mt-5 p-4 shadow-lg rounded bg-white">
+        <div class="text-center">
+            <h1 class="display-4 mb-4">Weather Application</h1>
+
+            <!-- Form -->
+            <form method="post" class="mb-4">
+                <div class="mb-3">
+                    <input type="text" name="City" id="City" class="form-control" required placeholder="Enter city name" />
+                </div>
+                <button type="submit" class="btn btn-primary">Get Weather</button>
+            </form>
+
+            <!-- Error Message -->
+            @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+            {
+                <div class="alert alert-danger" role="alert">
+                    @Model.ErrorMessage
+                </div>
+            }
+
+            <!-- Weather Information -->
+            @if (!string.IsNullOrEmpty(Model.Country) && !string.IsNullOrEmpty(Model.Temp))
+            {
+                <div class="alert alert-success mt-4" role="alert">
+                    <h4 class="alert-heading">Weather Info</h4>
+                    <p><strong>Country:</strong> @Model.Country</p>
+                    <p><strong>Temperature:</strong> @Model.Temp &deg;C</p>
+                    <p><strong>Wind Speed:</strong> @Model.Winds m/s</p>
+                    <p><strong>Description:</strong> @Model.Description</p>
+                </div>
+            }
+        </div>
+    </div>
+</body> 
+</html> 
